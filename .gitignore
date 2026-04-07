@@ -42,3 +42,7 @@ outputs.json
 # Logs
 *.log
 logs/
+infrastructure/terraform/environments/production/vm_ssh_key
+infrastructure/terraform/environments/production/vm_ssh_key.pub
+**/*.pem
+**/*_rsa
