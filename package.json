@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npx @cloudflare/next-on-pages",
+    "preview": "npm run build && wrangler pages dev",
+    "deploy": "npm run build && wrangler pages deploy",
     "start": "next start",
     "lint": "next lint"
   },
@@ -13,7 +15,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "lucide-react": "^0.378.0",
-    "framer-motion": "^11.2.6"
+    "framer-motion": "^11.2.6",
+    "@cloudflare/next-on-pages": "^1.13.5"
   },
   "devDependencies": {
     "@types/node": "^20.12.12",
