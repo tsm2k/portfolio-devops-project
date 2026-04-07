@@ -293,7 +293,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-8">Get In Touch</h2>
           <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-            I'm always open to discussing new opportunities, collaborations, or just chatting about cloud infrastructure and DevOps!
+            I&apos;m always open to discussing new opportunities, collaborations, or just chatting about cloud infrastructure and DevOps!
           </p>
           <div className="flex justify-center gap-6">
             <a href="mailto:tanaymaheshwari2000@gmail.com" className="flex items-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-lg">
