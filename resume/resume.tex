@@ -1,0 +1,153 @@
+\documentclass[letterpaper, 11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{multirow}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.7in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\topmargin}{-0.9in}
+\addtolength{\textheight}{1.8in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{ \vspace{-7pt}\scshape\raggedright\large }{}{0em}{}[
+\color{black}
+\titlerule
+\vspace{-7pt}
+]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{ \item\small{ \textbf{#1}{ #2 \vspace{-2pt}} } }
+
+\newcommand{\resumeSubSubheading}[2]{
+\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+	\textit{\small#1} & \textit{\small #2} \\
+\end{tabular*}
+\vspace{-5pt}
+}
+
+\newcommand{\resumeItemNH}[1]{ \item\small{ {#1 \vspace{-2pt}} } }
+
+\newcommand{\resumeSubheading}[4]{
+\vspace{-0.pt}
+\item
+\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+	\textbf{#1}       & #2                 \\
+	\textit{\small#3} & \textit{\small #4} \\
+\end{tabular*}
+\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}
+\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,label={}]}
+\newcommand{\resumeSubHeadingListStartBullets}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+\usepackage{array}
+\makeatletter
+\newcommand{\HUGE}{\@setfontsize\Huge{38}{47}}
+\newcolumntype{L}{>{\hb@xt@\z@\bgroup}l<{\hss\egroup}}
+\newcolumntype{C}{>{\centering\arraybackslash}c}
+\newcolumntype{R}{>{\hb@xt@\z@\bgroup\hss}r<{\egroup}}
+\makeatother
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	\begin{center}
+		{\Huge \textbf{Tanay Maheshwari}} \\[6pt] (+1) 765-409-1808 \quad \textbar
+		\quad
+		\href{mailto:tanaymaheshwari2000@gmail.com}{tanaymaheshwari2000@gmail.com}
+		\quad \textbar \quad
+		\href{https://www.linkedin.com/in/tanay-maheshwari-0592986b/}{LinkedIn}
+	\end{center}
+
+	%-----------EDUCATION-----------------
+	\section{Education }
+	\resumeSubHeadingListStart \resumeSubheading {Purdue University}{West Lafayette, IN}
+	{Master of Science in Computer and Information Technology (4.0/4.0)}{August 2024 -- Present}
+	\resumeSubheading {NMIMS}{Mumbai, India} {Bachelor of Technology in Computer Engineering (3.2/4.0)}{August 2017 -- May 2021}
+	\resumeSubHeadingListEnd
+
+	%--------CERTIFICATIONS------------
+	\section{Certifications}
+	\resumeSubHeadingListStart \resumeSubItem{Google Cloud Certified}
+	{\href{https://google.accredible.com/202099b8-c94f-4d96-8ae4-ccb2dc5a3c5a\#gs.05sp92}{Cloud Architect}, \href{https://google.accredible.com/1f4bea53-3ed4-4384-b20a-69fc086320a1}{Cloud Developer}, \href{https://www.credential.net/935f080a-0f43-4cb9-a565-087757953b60?key=20a985781ad16e4369bbbbbc2e9e40b88238781017e6e0157f1bd78f11aed52e}{Cloud DevOps Engineer}, \href{https://www.credential.net/da963177-f534-487e-822c-e75f6c6a0fad?key=e4b6311cebb4b00347575e03aced65654d9e6b383da168c3c54b936dd9130d02}{Associate Cloud Engineer}}
+
+	\resumeSubItem{The Linux Foundation}
+	{\href{https://www.credly.com/badges/683a8a38-9098-4e60-996d-628f7a924252/public_url}{CKA: Certified Kubernetes Administrator}}
+	\resumeSubHeadingListEnd
+
+	%-----------EXPERIENCE-----------------
+	\section{Professional Experience}
+	\resumeSubHeadingListStart \resumeSubheading {Purdue University}{West Lafayette, IN}
+	{Research Assistant}{August 2024 – Present} \resumeItemListStart \resumeItemNH{Built a real-time traffic analytics dashboard for Indiana Department of Transportation using \textbf{Next.js, TypeScript}, and \textbf{Turf.js}, aggregating data from 10+ sources (incidents, weather, lane closures, signs).}
+	\resumeItemNH{Implemented advanced filtering and visualization features with \textbf{D3.js, Recharts}, enabling cause-effect analysis, temporal pattern discovery, and multi-dimensional correlation studies across Indiana's highway network.}
+	\resumeItemNH{Conducted domain-specific research on traffic data visualization to enhance usability, resulting in streamlined layouts and intuitive visuals that enable traffic engineers to efficiently interpret complex roadway data.}
+	\resumeItemNH{Deployed the platform on \textbf{Google Cloud Platform} using \textbf{Cloud Run} and \textbf{BigQuery} to process 30M+ traffic data records; optimized performance, caching, and query costs for sub-2s dashboard loads within budget.}
+	\resumeItemListEnd
+
+	\resumeSubheading {Quantiphi}{Mumbai, India} {Senior Platform Engineer}{May 2023 -- June 2024}
+	\resumeItemListStart \resumeItemNH{Led the design and development of a document intelligence pipeline using \textbf{Vertex AI}, enabling automated contract and SOW evaluation for a global cloud infrastructure provider; processed and scored 5,000+ legal documents by extracting key metadata such as agreement numbers, legal stamps, and signature blocks.}
+	\resumeItemNH{Led deployment of a multilingual speech services platform for a leading U.S. telecom provider using \textbf{NVIDIA Riva, NeMo, and Triton Inference Server}; delivered scalable APIs by optimizing hybrid-cloud clusters across \textbf{GCP and Azure} with precise A100/H100 GPU sizing, significantly reducing inference latency.}
+
+	\resumeItemNH{Architected an end-to-end computer vision system for the world’s largest flooring manufacturer, using \textbf{Google edge devices} and \textbf{Vertex AI Vision} to ingest live camera feeds, train and deploy a model on on-site Kubernetes clusters, and stop tufting machines via programmable switches on knot detection, achieving \textgreater95\% accuracy.}
+
+	\resumeItemListEnd \resumeSubSubheading {Framework Engineer}{June 2021 – May 2023}
+	\resumeItemListStart \resumeItemNH{Led cloud onboarding for a Fortune 100 automaker, migrating 100TB+ of on-prem data to \textbf{BigQuery}.}
+	\resumeItemNH{Enabled org-wide adoption of \textbf{Data Fusion} and \textbf{Astronomer} via demos, onboarding, and documentation.}
+	\resumeItemNH{Deployed scalable GCP infrastructure with \textbf{Terraform} and streamlined CI/CD workflows for 900+ engineers using \textbf{OpenShift Tekton}; built a Python-based SQL generator that cut query development time by 70\%.}
+	\resumeItemListEnd
+
+	%--------RESEARCH AND PROJECTS------------
+	\section{Research \& Projects}
+	\resumeSubItem{Ceph DPU Offload (\textit{Thesis Research - Purdue University})}
+	\resumeItemListStart \resumeItemNH{Designed Ceph Client offload using SPDK and NVIDIA BlueField DPUs; reduced host CPU utilization by up to 90\% while improving throughput, enabling BlueField DPU–accelerated encryption and compression.}
+	\resumeItemListEnd \resumeSubItem{C-KASH (\textit{Research Project - Purdue University})}
+    \resumeItemListStart
+    \resumeItemNH{Co-authored and presented \href{https://ieeexplore.ieee.org/document/11429804}{“\textbf{C-KASH}”} at \textit{IEEE ANTS 2025}, a unified Kubernetes autoscaler and scheduler framework for LLM inference; outperforming default Kubernetes with 64\% higher token throughput, 25\% faster inference completion, and 11.5× greater pod density using custom metrics and GPU-aware scheduling.}
+	\resumeItemListEnd \resumeSubItem{Lend a Hand (\textit{Research Project - NMIMS})}
+	\resumeItemListStart \resumeItemNH{Developed a browser extension and ML pipeline to detect suicidal ideation in social media posts using NLP and classification models, achieving over 90\% accuracy; co-authored and presented the \href{https://link.springer.com/chapter/10.1007/978-3-030-88244-0_7}{\textbf{research}} at \textit{ICACDS 2021}.}
+	\resumeItemListEnd \resumeSubHeadingListEnd
+
+	%--------PROGRAMMING SKILLS------------
+	\section{Skills}
+	\resumeSubHeadingListStart \resumeSubItem{Languages}
+	{Python, C/C++, Java, Bash/Shell, HTML, CSS, YAML, Golang, Node.js, React, D3.js}
+	\resumeSubItem{Tools} {AWS, GCP, Azure, Kubernetes, Docker, Terraform, Github, Tekton, NGINX}
+	\resumeSubItem{Database}
+	{PostgreSQL, Oracle MySQL, mongoDB, BigQuery, Google Firebase}
+
+	\resumeSubHeadingListEnd
+
+	%-------------------------------------------
+\end{document}

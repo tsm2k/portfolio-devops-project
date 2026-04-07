@@ -1,0 +1,17 @@
+# Azure Configuration
+location    = "eastus"
+owner_email = "your-email@example.com"
+
+# Project Configuration
+project_name = "portfolio"
+environment  = "production"
+
+# VM Configuration
+vm_size = "Standard_B2s"  # 2 vCPUs, 4GB RAM - ~$30/month (Total: ~$41/month)
+
+# Tags
+tags = {
+  Project     = "DevOps Portfolio"
+  Environment = "Production"
+  ManagedBy   = "Terraform"
+}
