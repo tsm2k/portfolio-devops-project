@@ -1,9 +1,23 @@
 "use client";
 
-import { Github, Linkedin, Mail, ExternalLink, Award, Briefcase, GraduationCap, Code, Server, Database } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink, Award, Briefcase, GraduationCap, Code, Server, Database, Eye } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import CertificationModal from "./components/CertificationModal";
 
 export default function Home() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedCert, setSelectedCert] = useState<{
+    title: string;
+    filePath: string;
+    fileType: "pdf" | "image";
+  } | null>(null);
+
+  const openCertModal = (title: string, filePath: string, fileType: "pdf" | "image") => {
+    setSelectedCert({ title, filePath, fileType });
+    setModalOpen(true);
+  };
+
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -17,9 +31,9 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <h1 className="text-xl font-bold text-slate-900 dark:text-white">TM</h1>
           <div className="flex gap-6">
+            <a href="#projects" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Projects</a>
             <a href="#about" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">About</a>
             <a href="#experience" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Experience</a>
-            <a href="#projects" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Projects</a>
             <a href="#contact" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a>
           </div>
         </div>
@@ -57,119 +71,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-20 px-6 bg-white dark:bg-slate-900">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-12 flex items-center gap-3">
-            <GraduationCap className="text-blue-600" />
-            Education
-          </h2>
-          <div className="space-y-6">
-            <div className="border-l-4 border-blue-600 pl-6">
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Purdue University</h3>
-              <p className="text-lg text-blue-600 dark:text-blue-400">Master of Science in Computer and Information Technology</p>
-              <p className="text-slate-600 dark:text-slate-400">GPA: 4.0/4.0 | August 2024 - Present</p>
-              <p className="text-slate-600 dark:text-slate-400 mt-2">West Lafayette, IN</p>
-            </div>
-            <div className="border-l-4 border-slate-400 pl-6">
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white">NMIMS</h3>
-              <p className="text-lg text-slate-600 dark:text-slate-400">Bachelor of Technology in Computer Engineering</p>
-              <p className="text-slate-600 dark:text-slate-400">GPA: 3.2/4.0 | August 2017 - May 2021</p>
-              <p className="text-slate-600 dark:text-slate-400 mt-2">Mumbai, India</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Certifications */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-12 flex items-center gap-3">
-            <Award className="text-blue-600" />
-            Certifications
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-lg">
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Google Cloud Certified</h3>
-              <ul className="space-y-2 text-slate-600 dark:text-slate-300">
-                <li>• Professional Cloud Architect</li>
-                <li>• Professional Cloud Developer</li>
-                <li>• Professional Cloud DevOps Engineer</li>
-                <li>• Associate Cloud Engineer</li>
-              </ul>
-            </div>
-            <div className="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-lg">
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">The Linux Foundation</h3>
-              <ul className="space-y-2 text-slate-600 dark:text-slate-300">
-                <li>• Certified Kubernetes Administrator (CKA)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Experience Section */}
-      <section id="experience" className="py-20 px-6 bg-white dark:bg-slate-900">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-12 flex items-center gap-3">
-            <Briefcase className="text-blue-600" />
-            Professional Experience
-          </h2>
-          
-          <div className="space-y-12">
-            {/* Purdue */}
-            <div className="border-l-4 border-blue-600 pl-6">
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Research Assistant</h3>
-                  <p className="text-lg text-blue-600 dark:text-blue-400">Purdue University</p>
-                </div>
-                <span className="text-slate-600 dark:text-slate-400">Aug 2024 - Present</span>
-              </div>
-              <ul className="space-y-3 text-slate-600 dark:text-slate-300">
-                <li>• Built a real-time traffic analytics dashboard for Indiana Department of Transportation using Next.js, TypeScript, and Turf.js, aggregating data from 10+ sources</li>
-                <li>• Implemented advanced filtering and visualization features with D3.js and Recharts, enabling cause-effect analysis and temporal pattern discovery</li>
-                <li>• Deployed the platform on Google Cloud Platform using Cloud Run and BigQuery to process 30M+ traffic data records with sub-2s dashboard loads</li>
-              </ul>
-            </div>
-
-            {/* Quantiphi */}
-            <div className="border-l-4 border-purple-600 pl-6">
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Senior Platform Engineer</h3>
-                  <p className="text-lg text-purple-600 dark:text-purple-400">Quantiphi</p>
-                </div>
-                <span className="text-slate-600 dark:text-slate-400">May 2023 - June 2024</span>
-              </div>
-              <ul className="space-y-3 text-slate-600 dark:text-slate-300">
-                <li>• Led design and development of a document intelligence pipeline using Vertex AI, processing and scoring 5,000+ legal documents</li>
-                <li>• Led deployment of a multilingual speech services platform using NVIDIA Riva, NeMo, and Triton Inference Server with optimized hybrid-cloud clusters across GCP and Azure</li>
-                <li>• Architected an end-to-end computer vision system using Google edge devices and Vertex AI Vision, achieving &gt;95% accuracy in knot detection</li>
-              </ul>
-            </div>
-
-            {/* Framework Engineer */}
-            <div className="border-l-4 border-slate-400 pl-6">
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Framework Engineer</h3>
-                  <p className="text-lg text-slate-600 dark:text-slate-400">Quantiphi</p>
-                </div>
-                <span className="text-slate-600 dark:text-slate-400">June 2021 - May 2023</span>
-              </div>
-              <ul className="space-y-3 text-slate-600 dark:text-slate-300">
-                <li>• Led cloud onboarding for a Fortune 100 automaker, migrating 100TB+ of on-prem data to BigQuery</li>
-                <li>• Enabled org-wide adoption of Data Fusion and Astronomer via demos, onboarding, and documentation</li>
-                <li>• Deployed scalable GCP infrastructure with Terraform and streamlined CI/CD workflows for 900+ engineers using OpenShift Tekton</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Research & Projects */}
-      <section id="projects" className="py-20 px-6">
+      <section id="projects" className="py-20 px-6 bg-white dark:bg-slate-900">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-12 flex items-center gap-3">
             <Code className="text-blue-600" />
@@ -232,6 +135,157 @@ export default function Home() {
                 <span className="px-3 py-1 bg-white/20 rounded-full text-sm">FastAPI</span>
                 <span className="px-3 py-1 bg-white/20 rounded-full text-sm">ML</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-12 flex items-center gap-3">
+            <GraduationCap className="text-blue-600" />
+            Education
+          </h2>
+          <div className="space-y-6">
+            <div className="border-l-4 border-blue-600 pl-6">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Purdue University</h3>
+              <p className="text-lg text-blue-600 dark:text-blue-400">Master of Science in Computer and Information Technology</p>
+              <p className="text-slate-600 dark:text-slate-400">GPA: 4.0/4.0 | August 2024 - Present</p>
+              <p className="text-slate-600 dark:text-slate-400 mt-2">West Lafayette, IN</p>
+            </div>
+            <div className="border-l-4 border-slate-400 pl-6">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white">NMIMS</h3>
+              <p className="text-lg text-slate-600 dark:text-slate-400">Bachelor of Technology in Computer Engineering</p>
+              <p className="text-slate-600 dark:text-slate-400">GPA: 3.2/4.0 | August 2017 - May 2021</p>
+              <p className="text-slate-600 dark:text-slate-400 mt-2">Mumbai, India</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications */}
+      <section className="py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-12 flex items-center gap-3">
+            <Award className="text-blue-600" />
+            Certifications
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-lg">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Google Cloud Certified</h3>
+              <ul className="space-y-3">
+                <li>
+                  <button
+                    onClick={() => openCertModal("Professional Cloud Architect", "/certs/gcp_pca.pdf", "pdf")}
+                    className="flex items-center gap-2 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition group"
+                  >
+                    <span>• Professional Cloud Architect</span>
+                    <Eye size={16} className="opacity-0 group-hover:opacity-100 transition" />
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => openCertModal("Professional Cloud Developer", "/certs/gcp_pcdev.pdf", "pdf")}
+                    className="flex items-center gap-2 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition group"
+                  >
+                    <span>• Professional Cloud Developer</span>
+                    <Eye size={16} className="opacity-0 group-hover:opacity-100 transition" />
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => openCertModal("Professional Cloud DevOps Engineer", "/certs/gcp_pcdevops.pdf", "pdf")}
+                    className="flex items-center gap-2 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition group"
+                  >
+                    <span>• Professional Cloud DevOps Engineer</span>
+                    <Eye size={16} className="opacity-0 group-hover:opacity-100 transition" />
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => openCertModal("Associate Cloud Engineer", "/certs/acd.pdf", "pdf")}
+                    className="flex items-center gap-2 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition group"
+                  >
+                    <span>• Associate Cloud Engineer</span>
+                    <Eye size={16} className="opacity-0 group-hover:opacity-100 transition" />
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div className="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-lg">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">The Linux Foundation</h3>
+              <ul className="space-y-3">
+                <li>
+                  <button
+                    onClick={() => openCertModal("Certified Kubernetes Administrator (CKA)", "/certs/CKA_Tanay_Maheshwari.jpg", "image")}
+                    className="flex items-center gap-2 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition group"
+                  >
+                    <span>• Certified Kubernetes Administrator (CKA)</span>
+                    <Eye size={16} className="opacity-0 group-hover:opacity-100 transition" />
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="py-20 px-6 bg-white dark:bg-slate-900">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-12 flex items-center gap-3">
+            <Briefcase className="text-blue-600" />
+            Professional Experience
+          </h2>
+          
+          <div className="space-y-12">
+            {/* Purdue */}
+            <div className="border-l-4 border-blue-600 pl-6">
+              <div className="flex justify-between items-start mb-4">
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Research Assistant</h3>
+                  <p className="text-lg text-blue-600 dark:text-blue-400">Purdue University</p>
+                </div>
+                <span className="text-slate-600 dark:text-slate-400">Aug 2024 - Present</span>
+              </div>
+              <ul className="space-y-3 text-slate-600 dark:text-slate-300">
+                <li>• Built a real-time traffic analytics dashboard for Indiana Department of Transportation using Next.js, TypeScript, and Turf.js, aggregating data from 10+ sources</li>
+                <li>• Implemented advanced filtering and visualization features with D3.js and Recharts, enabling cause-effect analysis and temporal pattern discovery</li>
+                <li>• Deployed the platform on Google Cloud Platform using Cloud Run and BigQuery to process 30M+ traffic data records with sub-2s dashboard loads</li>
+              </ul>
+            </div>
+
+            {/* Quantiphi */}
+            <div className="border-l-4 border-purple-600 pl-6">
+              <div className="flex justify-between items-start mb-4">
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Senior Platform Engineer</h3>
+                  <p className="text-lg text-purple-600 dark:text-purple-400">Quantiphi</p>
+                </div>
+                <span className="text-slate-600 dark:text-slate-400">May 2023 - June 2024</span>
+              </div>
+              <ul className="space-y-3 text-slate-600 dark:text-slate-300">
+                <li>• Led design and development of a document intelligence pipeline using Vertex AI, processing and scoring 5,000+ legal documents</li>
+                <li>• Led deployment of a multilingual speech services platform using NVIDIA Riva, NeMo, and Triton Inference Server with optimized hybrid-cloud clusters across GCP and Azure</li>
+                <li>• Architected an end-to-end computer vision system using Google edge devices and Vertex AI Vision, achieving &gt;95% accuracy in knot detection</li>
+              </ul>
+            </div>
+
+            {/* Framework Engineer */}
+            <div className="border-l-4 border-slate-400 pl-6">
+              <div className="flex justify-between items-start mb-4">
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Framework Engineer</h3>
+                  <p className="text-lg text-slate-600 dark:text-slate-400">Quantiphi</p>
+                </div>
+                <span className="text-slate-600 dark:text-slate-400">June 2021 - May 2023</span>
+              </div>
+              <ul className="space-y-3 text-slate-600 dark:text-slate-300">
+                <li>• Led cloud onboarding for a Fortune 100 automaker, migrating 100TB+ of on-prem data to BigQuery</li>
+                <li>• Enabled org-wide adoption of Data Fusion and Astronomer via demos, onboarding, and documentation</li>
+                <li>• Deployed scalable GCP infrastructure with Terraform and streamlined CI/CD workflows for 900+ engineers using OpenShift Tekton</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -315,6 +369,17 @@ export default function Home() {
           <p className="text-slate-500 text-sm mt-2">Deployed on Vercel | Infrastructure on Azure</p>
         </div>
       </footer>
+
+      {/* Certification Modal */}
+      {selectedCert && (
+        <CertificationModal
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+          title={selectedCert.title}
+          filePath={selectedCert.filePath}
+          fileType={selectedCert.fileType}
+        />
+      )}
     </main>
   );
 }
