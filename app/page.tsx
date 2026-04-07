@@ -145,7 +145,7 @@ export default function Home() {
               <ul className="space-y-3 text-slate-600 dark:text-slate-300">
                 <li>• Led design and development of a document intelligence pipeline using Vertex AI, processing and scoring 5,000+ legal documents</li>
                 <li>• Led deployment of a multilingual speech services platform using NVIDIA Riva, NeMo, and Triton Inference Server with optimized hybrid-cloud clusters across GCP and Azure</li>
-                <li>• Architected an end-to-end computer vision system using Google edge devices and Vertex AI Vision, achieving >95% accuracy in knot detection</li>
+                <li>• Architected an end-to-end computer vision system using Google edge devices and Vertex AI Vision, achieving &gt;95% accuracy in knot detection</li>
               </ul>
             </div>
 
