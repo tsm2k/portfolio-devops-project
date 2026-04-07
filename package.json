@@ -4,11 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "preview": "wrangler pages dev .next",
-    "deploy": "wrangler pages deploy .next",
+    "build": "npx @cloudflare/next-on-pages --experimental-minify",
+    "preview": "npm run build && wrangler pages dev",
+    "deploy": "wrangler pages deploy .vercel/output/static --project-name=portfolio-devops-project",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "pages:deploy": "wrangler pages deploy .vercel/output/static --project-name=portfolio-devops-project",
+    "pages:watch": "npx @cloudflare/next-on-pages --watch",
+    "pages:dev": "npx @cloudflare/next-on-pages && wrangler pages dev .vercel/output/static"
   },
   "dependencies": {
     "next": "15.0.0",
