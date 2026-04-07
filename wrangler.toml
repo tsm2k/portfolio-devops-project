@@ -1,5 +1,5 @@
 name = "portfolio-devops-project"
-compatibility_date = "2024-01-01"
+compatibility_date = "2026-04-07"
 
 # Cloudflare Pages output directory (required so wrangler knows what to upload)
 pages_build_output_dir = ".vercel/output/static"
